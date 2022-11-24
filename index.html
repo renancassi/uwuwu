@@ -1,54 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="./pngaaa.com-4665559.png" type="image/x-icon">
-
-  <!-- Google tag (gtag.js) -->
-  <!-- Google tag (gtag.js) -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLEBL44T5H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-MLEBL44T5H');
-  </script>
-  <!-- Google tag (gtag.js) -->
-  <!-- Google tag (gtag.js) -->
-  <!-- Google tag (gtag.js) -->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Socket.IO Clicker</title>
+    <script 
+src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script 
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
-
 <body>
 
-  
+<div class="container">
+    <div class="row">
+      <h1 style="text-align: center">Click Counter</h1> </div>
+    <div class="row">
 
-  <div>
-    <h1 id="header">Clique no UwU</h1>
-    <h2 id="uwu" onclick="uwuSound();">UwU</h2>
-  </div>
+        <div class="col-md-12 ">
+            <p style="text-align: center"><button id='btn_click' 
+class="bnt btn-lg btn-success">Click Me!</button></p>
 
-  <p>
-    <span class="info" title="Em breve ranking de cliques! (O contador é local)" onclick="abrirInfo()">
-      <img src="./info-icon-svgrepo-com.svg" alt="info" height="15px">
-    </span>
-    Quantos cliques?:
-    <span id="numeroContador">0</span>
-  </p>
-
-
-  <div class="cardInfo">
-    <span onclick="abrirInfo()">x</span>
-    <span>Em breve ranking de cliques!<br>(O contador é local)</span>
-  </div>
+            <p style="text-align: center">Click counts:<span 
+id="counter"></span></p>
+        </div>
+    </div>
+</div>
 
 
-  <script src="script.js"></script>
+<script>
+    $(function () {
+
+        var socket = io('http://vps.pesoexato.com:89/');//connect to the socket
+
+        socket.on('connect',function()
+        {
+           console.log('Yeah I am connected!!');
+        });
+
+        //Listen from server.js
+        socket.on('click_count',function(value)
+        {
+            $('#counter').html(value);//Set new count value
+        });
+
+        //Says to server that the button has been clicked
+        $('#btn_click').click(function()
+        {
+            socket.emit('clicked');//Emitting user click
+        });
+
+    });
+</script>
 </body>
-
 </html>
 
