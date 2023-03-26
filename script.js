@@ -32,3 +32,13 @@ function abrirInfo() {
 function salvarContador() {
     localStorage.setItem("numeroContador", numeroContador.innerText);
 }
+
+console.log(`
+ ⠀⠀⠀⣿⣿⡆⠀⠀⢸⣷⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⢸⣿⡇⠀⠀⣾⣿⡆⠀
+ ⠀⠀⠀⣿⣿⡇⠀⠀⢸⣿⢰⣿⡆⠀⣾⣿⡆⠀⣾⣷ ⣿⣿⡇⠀ ⣿⣿⡇⠀
+ ⠀⠀⠀⣿⣿⡇⠀⠀⢸⣿⠘⣿⣿⣤⣿⣿⣿⣤⣿⡇⢻⣿⡇⠀⠀⣿⣿⡇⠀
+ ⠀⠀⠀⣿⣿⡇⠀⠀⢸⡿⠀⢹⣿⣿⣿⣿⣿⣿⣿⠁⢸⣿⣇⠀⢀⣿⣿⠇⠀
+ ⠀⠀⠀⠙⢿⣷⣶⣶⡿⠁⠀⠈⣿⣿⠟⠀⣿⣿⠇⠀⠈⠻⣿⣶⣾⡿⠋⠀⠀
+
+ desenvolvido por: Renan Cassi
+`)
