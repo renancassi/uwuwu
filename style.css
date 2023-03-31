@@ -21,6 +21,7 @@ body {
     font-size: 40px;
     cursor: pointer;  
     margin: 20px 0;
+    transition: transform 300ms ease-out;
   }
   
   body div h2:hover {
